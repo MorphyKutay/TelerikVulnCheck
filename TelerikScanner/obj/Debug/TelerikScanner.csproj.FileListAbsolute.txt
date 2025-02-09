@@ -1,0 +1,10 @@
+C:\Users\aydog\Documents\Visual Studio 2022\projects\TelerikScanner\TelerikScanner\bin\Debug\TelerikScanner.exe.config
+C:\Users\aydog\Documents\Visual Studio 2022\projects\TelerikScanner\TelerikScanner\bin\Debug\TelerikScanner.exe
+C:\Users\aydog\Documents\Visual Studio 2022\projects\TelerikScanner\TelerikScanner\bin\Debug\TelerikScanner.pdb
+C:\Users\aydog\Documents\Visual Studio 2022\projects\TelerikScanner\TelerikScanner\obj\Debug\TelerikScanner.csproj.AssemblyReference.cache
+C:\Users\aydog\Documents\Visual Studio 2022\projects\TelerikScanner\TelerikScanner\obj\Debug\TelerikScanner.Form1.resources
+C:\Users\aydog\Documents\Visual Studio 2022\projects\TelerikScanner\TelerikScanner\obj\Debug\TelerikScanner.Properties.Resources.resources
+C:\Users\aydog\Documents\Visual Studio 2022\projects\TelerikScanner\TelerikScanner\obj\Debug\TelerikScanner.csproj.GenerateResource.cache
+C:\Users\aydog\Documents\Visual Studio 2022\projects\TelerikScanner\TelerikScanner\obj\Debug\TelerikScanner.csproj.CoreCompileInputs.cache
+C:\Users\aydog\Documents\Visual Studio 2022\projects\TelerikScanner\TelerikScanner\obj\Debug\TelerikScanner.exe
+C:\Users\aydog\Documents\Visual Studio 2022\projects\TelerikScanner\TelerikScanner\obj\Debug\TelerikScanner.pdb
