@@ -6,7 +6,9 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -44,10 +46,14 @@ namespace TelerikScanner
 
                     string content = await response.Content.ReadAsStringAsync();
 
-                    if (content.Contains("Telerik.Web.UI.WebResource.axd"))
+                    if (content.Contains("Telerik.Web.UI.WebResource.axd") || content.Contains("Telerik.Web.UI.RadAjaxManager"))
                     {
-                        richTextBox2.AppendText($"[WARNING] Telerik WebResource found in {url}" + Environment.NewLine);
+                        richTextBox2.AppendText($"[WARNING] Telerik WebResource found in {url}/Telerik.Web.UI.WebResource.axd?type=rau" + Environment.NewLine);
 
+                    }
+                    else
+                    {
+                        richTextBox2.AppendText("Telerik Not Found");
                     }
                 }
                 catch (Exception ex) {
@@ -85,9 +91,9 @@ namespace TelerikScanner
 
                     string content = await response.Content.ReadAsStringAsync();
 
-                    if (content.Contains("Telerik.Web.UI.WebResource.axd"))
+                    if (content.Contains("Telerik.Web.UI.WebResource.axd") || content.Contains("Telerik.Web.UI.RadAjaxManager"))
                     {
-                        richTextBox1.AppendText($"[WARNING] Telerik WebResource found in {url}" + Environment.NewLine);
+                        richTextBox1.AppendText($"[WARNING] Telerik WebResource found in {url}/Telerik.Web.UI.WebResource.axd?type=rau" + Environment.NewLine);
 
                     }
                 }
@@ -120,5 +126,15 @@ namespace TelerikScanner
             }
 
         }
+
+        private async void findbtn_Click(object sender, EventArgs e)
+        {
+            
+
+        }
+
+      
+
+
     }
 }
