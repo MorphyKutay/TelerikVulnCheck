@@ -218,7 +218,7 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(640, 254);
+            this.labelControl2.Location = new System.Drawing.Point(560, 297);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(58, 16);
             this.labelControl2.TabIndex = 4;
@@ -226,9 +226,9 @@
             // 
             // richTextBox4
             // 
-            this.richTextBox4.Location = new System.Drawing.Point(741, 131);
+            this.richTextBox4.Location = new System.Drawing.Point(633, 6);
             this.richTextBox4.Name = "richTextBox4";
-            this.richTextBox4.Size = new System.Drawing.Size(325, 271);
+            this.richTextBox4.Size = new System.Drawing.Size(456, 525);
             this.richTextBox4.TabIndex = 3;
             this.richTextBox4.Text = "";
             // 

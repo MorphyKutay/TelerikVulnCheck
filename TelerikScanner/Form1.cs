@@ -11,6 +11,8 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+
 
 namespace TelerikScanner
 {
@@ -129,11 +131,59 @@ namespace TelerikScanner
 
         private async void findbtn_Click(object sender, EventArgs e)
         {
-            
+            string query = dorktext.Text;
+            int pageNumber = 0;  // Sayfa numarasını sıfırdan başlatıyoruz
+            int resultsPerPage = 10;  // Sayfa başına 10 sonuç
+            HttpClient client = new HttpClient();
+            client.DefaultRequestHeaders.UserAgent.ParseAdd("Mozilla/5.0");
 
+            richTextBox4.Clear();  // Önce içeriği temizle
+
+            try
+            {
+                using (StreamWriter writer = new StreamWriter("output.txt"))
+                while (true)
+                {
+                    // Bing URL'si oluşturuluyor, 'first' parametresi her sayfa için artacak
+                    string url = $"https://www.bing.com/search?q={Uri.EscapeDataString(query)}&first={pageNumber * resultsPerPage + 1}";
+
+                    // Sayfayı al
+                    string html = await client.GetStringAsync(url);
+
+                    HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+                    doc.LoadHtml(html);
+
+                    // Sayfadaki linkleri çek
+                    var nodes = doc.DocumentNode.SelectNodes("//li[@class='b_algo']//h2//a");
+
+                    if (nodes == null || nodes.Count == 0)
+                    {
+                        break;  // Sayfada sonuç yoksa döngüden çık
+                    }
+
+                    foreach (var node in nodes)
+                    {
+                        string link = node.GetAttributeValue("href", "N/A");
+
+                        if (!string.IsNullOrEmpty(link))
+                        {
+                            richTextBox4.AppendText(link + Environment.NewLine);  // Sonuçları ekrana yazdır
+                            writer.WriteLine(link);
+                        }
+                    }
+
+                    // Sonraki sayfaya geçmek için pageNumber'ı artır
+                    pageNumber++;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Bir hata oluştu: " + ex.Message);
+            }
         }
 
-      
+
+
 
 
     }
